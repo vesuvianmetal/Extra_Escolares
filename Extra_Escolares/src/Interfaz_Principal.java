@@ -1,3 +1,7 @@
+
+import java.io.File;
+import javax.swing.JFileChooser;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -162,7 +166,13 @@ public class Interfaz_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
-       
+JFileChooser fileChooser = new JFileChooser();
+fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+int result = fileChooser.showOpenDialog(this);
+if (result == JFileChooser.APPROVE_OPTION) {
+    File selectedFile = fileChooser.getSelectedFile();
+    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+}       
     }//GEN-LAST:event_btnbuscarActionPerformed
 
     /**
